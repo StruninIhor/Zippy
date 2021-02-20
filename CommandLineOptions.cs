@@ -16,5 +16,7 @@ namespace Zippy
         public string OutputDirectory { get; set; }
         [Option('v', "verbose", Default = true)]
         public bool Verbose { get; set; }
+        [Option('s', "skipExisting", Default = true)]
+        public bool SkipExistingFiles { get; set; }
     }
 }

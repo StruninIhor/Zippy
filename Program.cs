@@ -23,9 +23,14 @@ namespace Zippy
                     {
                        if (unzip)
                         {
+                            if (options.SkipExistingFiles && File.Exists(Path.Combine(options.OutputDirectory, entry.Key)))
+                            {
+                                Console.WriteLine($"Skipping {entry.Key}");
+                                continue;
+                            }
                             if (options.Verbose)
                             {
-                                Console.WriteLine($"Processing {entry}");
+                                Console.WriteLine($"Processing {entry.Key}");
                             }
                             entry.WriteToDirectory(options.OutputDirectory,
                                               new ExtractionOptions()
